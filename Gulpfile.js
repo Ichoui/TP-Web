@@ -7,9 +7,9 @@ var dest = [
 ];
 
 var src = [
-  './node_modules/bootstrap-sass/assets/stylesheets'
+  './node_modules/bootstrap-sass/assets/stylesheets',
   // './node_modules/sweetalert2/src',
-  // './node_modules/font-awesome/scss'
+  './node_modules/font-awesome/scss'
 ];
 
 gulp.task('styles', function () {
