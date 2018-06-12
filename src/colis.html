@@ -1,0 +1,101 @@
+<!doctype html>
+<!-- Faire le double header ressemblant à EUROSPORT ! :D  -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TP Web</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+
+</head>
+<body>
+<div class="header-resp">
+    <img class="logo" src="../resources/img/logo-cocolis.png">
+    <div class="burger">
+        <div class="bars">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</div>
+
+<div class="header">
+    <div>
+        <img class="logo" src="../resources/img/logo-cocolis.png">
+    </div>
+    <ul>
+        <li><a href="../src/index.html" class="title">MyTransporter</a></li>
+        <li><a href="../src/trajet.html"><i class="fas fa-search"></i>&nbsp;Rechercher mon trajet</a></li>
+        <li><a href="../src/colis.html"><i class="fas fa-search"></i>&nbsp;Rechercher mon colis</a></li>
+        <li><a href="../src/contact.html"><i class="fas fa-address-book"></i>&nbsp;Contact</a></li>
+    </ul>
+    <div class="right">
+        <img src="../resources/img/lepetit.png" class="img-responsive" alt="Eude Le Petit">
+    </div>
+</div>
+<div class="container-fluid contain">
+    <h1>Liste des Colis</h1>
+    <div class="row">
+        <section class="col-md-9 block-colis">
+            <div class="align-h">
+                <article class="colis col-md-3"><img src="../resources/img/box2.png" class="img-responsive">
+                    <div class="category"><span>Colis</span></div>
+                    <hr>
+                    <p class="citys">Ville A - Ville B</p>
+                    <p class="price"><a href="#">15€</a></p>
+                </article>
+                <article class="colis col-md-3"><img src="../resources/img/box2.png" class="img-responsive">
+                    <div class="category"><span>Valise</span></div>
+                    <hr>
+                    <p class="citys">Ville A - Ville B</p>
+                    <p class="price"><a href="#">15€</a></p>
+                </article>
+                <article class="colis col-md-3"><img src="../resources/img/box2.png" class="img-responsive">
+                    <div class="category"><span>Colis</span></div>
+                    <hr>
+                    <p class="citys">Ville A - Ville B</p>
+                    <p class="price"><a href="#">15€</a></p>
+                </article>
+            </div>
+            <div class="align-h">
+                <article class="colis col-md-3"><img src="../resources/img/box2.png" class="img-responsive">
+                    <div class="category"><span>Sac</span></div>
+                    <hr>
+                    <p class="citys">Ville A - Ville B</p>
+                    <p class="price"><a href="#">15€</a></p>
+                </article>
+                <article class="colis col-md-3"><img src="../resources/img/box2.png" class="img-responsive">
+                    <div class="category"><span>Colis</span></div>
+                    <hr>
+                    <p class="citys">Ville A - Ville B</p>
+                    <p class="price"><a href="#">15€</a></p>
+                </article>
+                <article class="colis col-md-3"><img src="../resources/img/box2.png" class="img-responsive">
+                    <div class="category"><span>Colis</span></div>
+                    <hr>
+                    <p class="citys">Ville A - Ville B
+                    <p>
+                    <p class="price"><a href="#">15€</a></p>
+                </article>
+            </div>
+        </section>
+        <aside class="col-md-3 block-right">
+            <p>Commander</p>
+            <form action="">
+                <label for="nom">Nom :</label><br><input id="nom" type="text">
+                <label for="prenom">Prenom : </label><br><input id="prenom" type="text">
+                <a href="#" class="btn">Valider</a>
+            </form>
+        </aside>
+    </div>
+</div>
+
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../resources/scripts/t.js"></script>
+
+</body>
+</html>

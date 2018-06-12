@@ -1,0 +1,36 @@
+* {
+  font-family: Calibri, sans-serif;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.intro {
+  text-align: center;
+  font-size: 3em;
+  padding: 0 35px;
+}
+  .services {
+    text-transform: uppercase;
+    color:white;
+    background-color: $brand-primary;
+    width: 80px ;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    margin: 0 auto;
+  }
+
+
+// Bootstrap
+.bootstrap-test {
+  border: 2px solid blue;
+}

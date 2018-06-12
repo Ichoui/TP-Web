@@ -1,0 +1,8 @@
+$brand-primary: #141b4d;
+$radius-five: 5px;
+
+//@import "../../bootstrap-sass/assets/stylesheets/bootstrap"; // bootstrap 3+
+@import "../../bootstrap/scss/bootstrap"; // bootstrap+
+@import "index";
+@import "trip";
+@import "media-mobile";

@@ -1,16 +1,18 @@
-* {
-  font-family: Calibri, sans-serif;
-  font-size: 1em;
-  margin: 0;
-  padding: 0;
+@mixin identifiants {
+  background-color: $brand-primary;
+  color: white;
+  text-align: center;
+  border-radius: $radius-five;
+  text-transform: uppercase;
 }
 
-a {
-  text-decoration: none;
+.header-resp {
+  display: none;
 }
 
 .header {
   position: fixed;
+  z-index: 999;
   background-color: $brand-primary;
   width: 100%;
   height: 60px;
@@ -41,6 +43,7 @@ a {
       }
     }
   }
+
   .right {
     position: absolute;
     top: 4px;
@@ -54,36 +57,33 @@ a {
   }
 }
 
-.container {
-  width: 100%;
+.contain {
   margin-top: 60px;
+  h1 {
+    color:$brand-primary;
+    text-align: center;
+  }
 }
 
-.block-colis {
-  width: 80%;
+//width: 80%;
+.align-h {
+  display: flex;
   .colis {
     border: 2px solid $brand-primary;
-    float: left;
-    width: 20%;
-    display: inline-block;
-    margin: 20px 10px;
-    border-radius: 5px;
+    margin: 20px 5px;
+    border-radius: $radius-five;
     img {
       display: block;
       margin: 10px auto;
       width: 75%;
     }
     .category {
-      background-color: $brand-primary;
-      color: white;
-      width: 30%;
-      height: 20px;
-      text-align: center;
-      line-height: 20px;
+      @include identifiants;
       margin: -10px 0 0 10%;
-      border-radius: 2px;
-      text-transform: uppercase;
+      width: 75%;
       font-size: 0.8em;
+      height: 20px;
+      line-height: 20px;
     }
     hr {
       width: 80%;
@@ -95,12 +95,12 @@ a {
       text-align: center;
     }
     .price {
-      @extend .category;
+      @include identifiants;
       margin: 5px auto;
       font-size: 1.5em;
       height: 30px;
       line-height: 30px;
-      border-radius: 10px;
+      width: auto;
       a {
         color: white;
 
@@ -113,38 +113,37 @@ a {
 }
 
 .block-right {
-  position: fixed;
-  display: inline-block;
-  width: 20%;
-  height: 600px;
-  margin: 20px 0 0 30px;
+  margin: 20px 0;
   background-color: #141b4d;
   color: white;
   text-align: center;
-  right: 5px;
-  border-bottom-left-radius: 5px;
-  border-top-left-radius: 5px;
+  border-radius: $radius-five;
   p {
     margin-top: 20px;
     margin-bottom: 30px;
   }
   label {
-    float: left;
-    margin-left: 10px;
   }
   input {
-    margin: 10px 0;
-    width: 80%;
-  }
-  .btn {
-    background-color: white;
-    border-radius: 5px;
-    color: #141b4d;
-    width: 50%;
-    height: 25px;
     display: block;
+    color: black;
+    margin: 10px auto;
+    width: 80%;
+    padding-left: 5px;
+  }
+  .nb-colis {
+    width: 30%;
+  }
+  .btn-submit {
+    display:inline-block;
+    background-color: white;
+    border-radius: $radius-five;
+    color: #141b4d;
+    padding: 3px;
+    width: 80px;
     text-align: center;
-    line-height: 25px;
     margin: 20px auto;
   }
 }
+
+
