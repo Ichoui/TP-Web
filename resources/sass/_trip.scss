@@ -29,6 +29,7 @@
     line-height: 60px;
     margin-left: 60px;
     li {
+      font-size: 0.8em;
       list-style-type: none;
       display: inline;
       color: white;
@@ -60,7 +61,7 @@
 .contain {
   margin-top: 75px;
   h1 {
-    color:$brand-primary;
+    color: $brand-primary;
     text-align: center;
   }
 }
@@ -135,7 +136,7 @@
     width: 30%;
   }
   .btn-submit {
-    display:inline-block;
+    display: inline-block;
     background-color: white;
     border-radius: $radius-five;
     color: #141b4d;
