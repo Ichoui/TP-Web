@@ -1,0 +1,186 @@
+<!doctype html>
+<!-- Faire le double header ressemblant à EUROSPORT ! :D  -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TP Web</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <style>
+        #mapToulouse {
+            height: 500px;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .valid {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+<div class="menu"><!-- menu.html --></div>
+
+<div class="container-fluid contain">
+    <div>
+        <img src="http://maps.google.com/mapfiles/ms/icons/purple-dot.png" alt=""> : Station fermée
+        <img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" alt=""> : Plus de vélos
+        <img src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" alt=""> : Moins de 5 vélos
+        <img src="http://maps.google.com/mapfiles/ms/icons/green-dot.png" alt=""> : Plus de 5 vélos
+    </div>
+    <br>
+    <form action="">
+        <input type="text" placeholder="Nom de ville">
+        <a href="#" class="btn valid">OK</a>
+    </form>
+    <div id="mapToulouse"></div>
+
+</div>
+
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script>
+    // apiKey = "faf706c165d274d913caefa2d971337bfdaa889b";
+    // https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=faf706c165d274d913caefa2d971337bfdaa889b
+    var map;
+
+    var tabMarker = [];
+    var tabinfowindow = [];
+    var firstTime = true;
+    var last = -1;
+
+
+    $('#mapToulouse').load(webservice());
+
+    function treatResult(data) {
+        for (var i = 0; i < data.length; i++) {
+
+            var lat = data[i].position.lat; // lat chaque station vélo
+            var lng = data[i].position.lng; // lng de chaque station vélo
+            var veloAvailable = data[i].available_bikes; // vélo restant dans chaque station
+            var status = data[i].status; // station vélo OPEN ou CLOSE
+            var address = data[i].address;
+            var color;
+            var content;
+
+
+            if (status === 'OPEN') {
+                if (veloAvailable === 0) {
+                    color = "red";
+                } else if (veloAvailable < 5) {
+                    color = "orange";
+                } else if (veloAvailable >= 5) {
+                    color = "green";
+                }
+            } else {
+                color = "purple";
+            }
+
+            if (firstTime === true) {
+                // si on passe la première fois
+
+                content = "<div>" +
+                    "Statut :" + status +
+                    "<br>" +
+                    "Adresse : " + address +
+                    "<br>" +
+                    "Vélo restants : " + veloAvailable +
+                    "</div>";
+                addMarker(lat, lng, i, content);
+            }
+            // si on est déjà passé
+
+            refreshMarker(color, i, veloAvailable);
+        }
+
+        setTimeout(webservice, 10000);
+        firstTime = false;
+
+    }
+
+
+    function webservice() {
+        $.ajax({
+            type: 'GET',
+            url: 'https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=faf706c165d274d913caefa2d971337bfdaa889b',
+            datatype: 'jsons',
+            success: function (data) {
+                console.log(data);
+                treatResult(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    }
+
+    function addMarker(lat, lng, i, content) {
+        var point = new google.maps.LatLng(lat, lng);
+
+        var infowindow = null;
+        var marker = new google.maps.Marker(
+            {
+                position: point
+            });
+
+
+        infowindow = new google.maps.InfoWindow({
+            content: content
+        });
+
+
+
+        marker.addListener('click', function () {
+            if (last > -1) {
+                tabinfowindow[last].close();
+            }
+            infowindow.open(map, marker);
+            last=i;
+        });
+
+        marker.setMap(map);
+        map.panTo(point);
+        tabMarker[i] = marker;
+        tabinfowindow[i] = infowindow;
+    }
+
+    function refreshMarker(color, i) {
+        tabMarker[i].setIcon("http://maps.google.com/mapfiles/ms/icons/" + color + "-dot.png");
+
+    }
+
+    function initMap(lat, lng) {
+        var latTLse = 43.60;
+        var lngTlse = 1.44;
+        var latlng = {lat: latTLse, lng: lngTlse};
+
+        map = new google.maps.Map(document.getElementById('mapToulouse'), {
+            zoom: 13,
+            center: latlng
+        });
+    }
+
+    // fonction qui compare les villes, fait un match et la renvoie dans .valid
+    function validCity() {
+
+    }
+
+    $('.valid').on('click', function (e) {
+        e.preventDefault();
+
+        // validCity();
+    });
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdMdyholdeEJic57XAEyO96O4lYUo5WGY&callback=initMap">
+</script>
+
+<script src="../resources/scripts/t.js"></script>
+<script src="../resources/scripts/toulouse.js"></script>
+
+</body>
+</html>
