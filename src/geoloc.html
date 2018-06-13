@@ -125,30 +125,8 @@
     </script>
 </head>
 <body>
-<div class="header-resp">
-    <img class="logo" src="../resources/img/logo-cocolis.png">
-    <div class="burger">
-        <div class="bars">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-</div>
+<div class="menu"><!-- menu.html --></div>
 
-<div class="header">
-    <div>
-        <img class="logo" src="../resources/img/logo-cocolis.png">
-    </div>
-    <ul>
-        <li><a href="../src/index.html" class="title">MyTransporter</a></li>
-        <li><a href="../src/trajet.html"><i class="fas fa-search"></i>&nbsp;Rechercher mon trajet</a></li>
-        <li><a href="../src/colis.html"><i class="fas fa-search"></i>&nbsp;Rechercher mon colis</a></li>
-        <li><a href="../src/geoloc.html"><i class="fas fa-globe"></i>&nbsp;Geolocalisation</a></li>
-        <li><a href="../src/contact.html"><i class="fas fa-address-book"></i>&nbsp;Contact</a></li>
-    </ul>
-    <div class="right">
-        <img src="../resources/img/lepetit.png" class="img-responsive" alt="Eude Le Petit">
-    </div>
-</div>
 <div class="container-fluid contain">
     <input type="text" id="txtAdresse" value="" placeholder="Recherchez..."/>
     <input type="button" onclick="decoder_adresse();" value="placer marqueur" />
@@ -162,6 +140,7 @@
 
 <script src="../node_modules/jquery/dist/jquery.js"></script>
 <script src="../resources/scripts/t.js"></script>
+<script src="../resources/scripts/RATP.js"></script>
 
 
 </body>

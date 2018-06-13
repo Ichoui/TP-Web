@@ -1,6 +1,7 @@
 $(function () {
     $('.burger .bars').on("click", function () {
-       $('.header').toggle();
+        $('.header').toggle();
     });
+    $('.menu').load('menu.html');
 
 });
