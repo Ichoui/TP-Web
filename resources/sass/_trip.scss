@@ -69,9 +69,11 @@
 //width: 80%;
 .align-h {
   display: flex;
+  flex-wrap: wrap;
   .colis {
     border: 2px solid $brand-primary;
-    margin: 20px 5px;
+    margin: 20px auto;
+    max-width: 250px;
     border-radius: $radius-five;
     img {
       display: block;
@@ -98,7 +100,7 @@
     .price {
       @include identifiants;
       margin: 5px auto;
-      font-size: 1.5em;
+      font-size: 1.1em;
       height: 30px;
       line-height: 30px;
       width: auto;
